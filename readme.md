@@ -32,12 +32,14 @@ php artisan key:generate
 
 Создать новую БД и заполнить файл .env
 
->DB_CONNECTION=драйвер БД
->DB_HOST=127.0.0.1
->DB_PORT=3306
->DB_DATABASE=db_name
->DB_USERNAME=db_username
->DB_PASSWORD=username_pass
+```
+DB_CONNECTION=драйвер БД
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_name
+DB_USERNAME=db_username
+DB_PASSWORD=username_pass
+```
 
 ### Миграция Базы Данных
 
