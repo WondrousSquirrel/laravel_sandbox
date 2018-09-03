@@ -7,13 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post</h1>
-    @foreach ($posts as $post) 
-        <p>
-            $post->title
-        </p>
-    @endforeach
-
-    <a href="{{ route('post.create') }}">Add New</a>
+    <h1>Create Post</h1>
 </body>
 </html>

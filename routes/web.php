@@ -23,5 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'is_admin', 'namespace' => 'Admin'], function(){
     // Home Route
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
-    Route::get('admin/post', 'PostController@index')->name('admin.post');
+    // resource значит CRUD
+    Route::resource('admin/post', 'PostController');
 });

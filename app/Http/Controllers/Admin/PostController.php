@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         // Отображения списка
-        $post = post::all(); // получение списка всех моделей
+        $posts = post::all(); // получение списка всех моделей
         return view('admin.post_list', compact('posts'));
 
     }
@@ -28,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('admin.create_post');
     }
 
     /**
@@ -39,6 +40,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'title' => 'required',
+            'slug' => 'required',
+            'body' => 'required',
+        ]);
+
+
+        $post = new post();
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect(rout('post.index'));
+
     }
 
     /**
