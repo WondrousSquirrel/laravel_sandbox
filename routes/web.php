@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@admin')
-    ->middleware('is_admin')
-    ->name('admin');
+// Amind Group Route
+Route::group(['middleware' => 'is_admin', 'namespace' => 'Admin'], function(){
+    // Home Route
+    Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    Route::get('admin/post', 'PostController@index')->name('admin.post');
+});
