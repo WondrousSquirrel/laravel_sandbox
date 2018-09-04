@@ -42,18 +42,16 @@ class PostController extends Controller
         //
         $this->validate($request, [
             'title' => 'required',
-            'slug' => 'required',
             'body' => 'required',
         ]);
 
 
         $post = new post();
         $post->title = $request->title;
-        $post->slug = $request->slug;
         $post->body = $request->body;
         $post->save();
 
-        return redirect(rout('post.index'));
+        return redirect(route('post.index'));
 
     }
 
