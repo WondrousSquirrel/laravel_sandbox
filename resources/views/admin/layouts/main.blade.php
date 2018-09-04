@@ -4,7 +4,7 @@
     @include('admin.layouts.head')
     <title>Песочница | @yield('title')</title>
 </head>
-<body>
+<body class="grey lighten-5">
     @section('content')
         @show
     
