@@ -35,11 +35,6 @@ class LoginController extends Controller
      * @return void
      */
 
-    protected function authenticated(Request $request, $user) {
-        if (auth()->user()->isAdmin()) {
-            return redirect('admin.home');
-        }
-    }
 
     public function __construct()
     {

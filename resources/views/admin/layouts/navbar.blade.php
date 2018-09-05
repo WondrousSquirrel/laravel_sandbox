@@ -1,5 +1,7 @@
 <div class="navbar-fixed ">
     <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{{ route('admin.home') }}">Главная страница</a></li>
+        <li><a href="#!">Личная страница</a></li>
         <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();"> Выход
@@ -7,9 +9,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-        </li>
-        <li>
-            <a href="#">Two</a>
         </li>
         <!-- <li class="divider"></li> -->
     </ul>
@@ -19,9 +18,7 @@
                 {{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i>
             </a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="{{ route ('admin.home') }} ">Home</a></li>
-                <li><a href="{{ route  ('post.index') }}">Post</a></li>
-                <li><a href="#">User</a></li>
+                <li><a href="/">На сайт</a></li>
             </ul>
         </div>
     </nav>

@@ -22,8 +22,22 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->title}}</td>
-                            <td>Удалить</td>
-                            <td>Редактировать</td>
+                            <td>
+                                <a href="{{ route('post.edit', $post->id) }}">Редактировать</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('post.destroy' , $post->id) }}" id="delete-form-{{ $post->id }}" method="post" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
+                                <a href="" onclick=" if(confirm('Удалить?')) {
+                                    event.preventDefault();
+                                    document.getElementById('delete-form-{{ $post->id }}').submit();
+                                    } else {
+                                        event.preventDefault()
+                                    }
+                                    ">Удалить</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
