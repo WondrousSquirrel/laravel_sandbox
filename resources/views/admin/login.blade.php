@@ -5,7 +5,7 @@
     <title>Вход в админ панель</title>
 </head>
 <body>
-    <h1> Admin Login</h1>
+    @include('includes.messages')
     <div class="container">
         <div class="row">
             <form class="col s12" action="{{ route('admin.login') }}" method="post" enctype="multipart/form-data" >
