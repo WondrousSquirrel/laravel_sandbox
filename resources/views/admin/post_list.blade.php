@@ -31,5 +31,4 @@
         @endif
     </div>
     <a class="waves-effect waves-light btn" href="{{ route ('post.create') }}">Создать пост</a>
-        
 @endsection
