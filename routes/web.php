@@ -19,10 +19,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Admin login
+
+Route::group(['namespace' => 'Admin'], function(){
+    Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('admin-login', 'Auth\LoginController@login');
+});
+
+
 // Amind Group Route
 Route::group(['middleware' => 'is_admin', 'namespace' => 'Admin'], function(){
     // Home Route
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
     // resource значит CRUD
     Route::resource('admin/post', 'PostController');
+
 });

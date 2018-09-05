@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -35,9 +38,26 @@ class LoginController extends Controller
      * @return void
      */
 
+    
+    public function showLoginForm() {
+        // переопределение метода из AuthenticatesUsers, 
+        //для отображения нужного вью
+        return view('admin.login');
+    }
+
+    public function login(Request $request) {
+        $this->validateLogin($request);
+
+        if($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
     protected function authenticated(Request $request, $user) {
         if (auth()->user()->isAdmin()) {
-            return redirect('admin.home');
+            return redirect()->route('admin.home');
         }
     }
 
