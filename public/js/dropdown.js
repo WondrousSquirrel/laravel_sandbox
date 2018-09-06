@@ -1,4 +1,4 @@
 $( function () {
     $(".dropdown-trigger").dropdown();
-    $('.collapsible').collapsible();
+    $('select').formSelect();
 });

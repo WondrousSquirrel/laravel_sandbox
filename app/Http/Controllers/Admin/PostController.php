@@ -47,11 +47,18 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'slug' => 'required',
+            //'image' => 'required',
         ]);
+        /*
+        if($request->hasFile('image')) {
+            $imageName =$request->image->store('public');
+        }
+*/
 
-
-        $post = new post();
+        $post = new post;
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
         $post->save();
         $post->tags()->sync($request->tags);
@@ -101,10 +108,13 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'slug' => 'required',
+            //'image' => 'required',
         ]);
 
         $post = post::find($id);
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);

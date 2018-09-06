@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagPostsTable extends Migration
+class CreatePostTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTagPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_posts', function (Blueprint $table) {
+        Schema::create('post_tags', function (Blueprint $table) {
             $table->integer('post_id')->unsigned()->index();
             $table->integer('tag_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
@@ -28,6 +28,6 @@ class CreateTagPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_posts');
+        Schema::dropIfExists('post_tags');
     }
 }

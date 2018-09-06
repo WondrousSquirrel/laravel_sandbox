@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class category extends Model
 {
     //
-    public function posts() {
-        return $this->belongsToMany('App\Model\user\post', 'category_posts')->orderBy('created_at', 'DESC')->paginate(10);
+    public function posts(){
+    	return $this->belongsToMany('App\Model\user\post', 'category_posts')->orderBy('created_at', 'DESC')->paginate(10);
     }
-
-    public function getRouteKeyName() {
-        return 'slug';
+    public function getRouteKeyName(){
+    	return 'slug';
     }
 }

@@ -10,13 +10,13 @@
         <div class="col s3  blue-text text-lighten-5 teal darken-4"  >
             @include('admin.layouts.sidebar')
         </div>
+
         <div class="container">
-            <div class="col s9">
-
-                @section('content')
-                    @show
-
-            </div>
+                <div class="col s9">
+                    
+                    @section('content')
+                        @show    
+                </div>
         </div>
         
     </div>
