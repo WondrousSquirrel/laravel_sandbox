@@ -52,6 +52,8 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = $request->slug;
         $category->save();
+
+        return redirect(route('category.index'));
     }
 
     /**
@@ -93,10 +95,11 @@ class CategoryController extends Controller
             'slug' => 'required',
         ]);
 
-        $category = category::find();
+        $category = category::find($id);
         $category->name = $request->name;
         $category->slug = $request->slug;
         $category->save();
+
 
         return redirect(route('category.index'));
     }

@@ -113,6 +113,6 @@ class TagController extends Controller
     {
         //
         tag::where('id', $id)->delete();
-        return redirect()->back;
+        return redirect()->back();
     }
 }

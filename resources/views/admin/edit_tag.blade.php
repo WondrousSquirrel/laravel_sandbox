@@ -1,32 +1,32 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Создания поста')
+@section('title', 'Теги: редактирование')
 @section('content')
-    <h1>Редактирование Поста</h1>
+    <h1>Редактирование Тега</h1>
 
     <div class="row">
-        <form class="col s12" action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data" >
+        <form class="col s12" action="{{ route('tag.update', $tag->id) }}" method="post" >
             {{ csrf_field() }}
             {{ method_field('PUT') }}
           
             <div class="row">
                 <div class="input-field col s12">
-                <input id="title" type="text" name="title" class="validate" value="{{ $post->title }}">
-                    <label for="title">Title</label>
+                <input id="name" type="text" name="name"  value="{{ $tag->name }}">
+                    <label for="name">Имя</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="body" type="text" name="body" class="validate" value="{{ $post->body }}">
-                    <label for="body">Body</label>
+                    <input id="slug" type="text" name="slug" value="{{ $tag->slug }}">
+                    <label for="slug">Slug</label>
                 </div>
             </div>
 
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
-            <a href="{{ route('post.index') }}">Назад</a>
+            <a href="{{ route('tag.index') }}">Назад</a>
 
         </form>
     </div>
