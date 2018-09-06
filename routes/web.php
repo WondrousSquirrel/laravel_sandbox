@@ -33,5 +33,7 @@ Route::group(['middleware' => 'is_admin', 'namespace' => 'Admin'], function(){
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
     // resource значит CRUD
     Route::resource('admin/post', 'PostController');
+    Route::resource('admin/category', 'CategoryController');
+    Route::resource('admin/tag', 'TagController');
 
 });

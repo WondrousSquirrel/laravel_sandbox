@@ -15,8 +15,8 @@
     <!-- The nav menu -->
     <div class="nav">
         <a class="nav-item " href="{{ route('post.index') }}">Пост</a>
-        <a class="nav-item" href="#!">Категории</a>
-        <a class="nav-item" href="#!">Теги</a>
+        <a class="nav-item" href="{{ route('category.index') }}">Категории</a>
+        <a class="nav-item" href="{{ route('tag.index') }}">Теги</a>
         <a class="nav-item" href="#!">Пользователи</a>
     </div>
 

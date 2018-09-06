@@ -1,4 +1,4 @@
-<div class="navbar-fixed ">
+<div class="navbar-fixed blue-text">
     <ul id="dropdown1" class="dropdown-content">
         <li><a href="{{ route('admin.home') }}">Главная страница</a></li>
         <li><a href="#!">Личная страница</a></li>

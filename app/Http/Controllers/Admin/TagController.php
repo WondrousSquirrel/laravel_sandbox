@@ -5,21 +5,20 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\user\post;
 use App\Model\user\tag;
-use App\Model\user\category;
 
-class PostController extends Controller
+class TagController extends Controller
 {
     /**
-     * Контроллер созданный с помощью ключа --resource
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // Отображения списка
-        $posts = post::all(); // получение списка всех моделей
-        return view('admin.post_list', compact('posts'));
-
+        //
+        $tags = tag::all();
+        return view('admin.tag_list', compact('tags'));
     }
 
     /**
@@ -30,9 +29,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        $tags = tag::all();
-        $categories = category::all();
-        return view('admin.create_post', compact('tags', 'categories'));
+        return view('admin.create_tag');
     }
 
     /**
@@ -45,20 +42,16 @@ class PostController extends Controller
     {
         //
         $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
+            'name' => 'required',
+            'slug' => 'required',
         ]);
 
+        $tag = new tag;
+        $tag->name = $request->name;
+        $tag->slug = $request->slug;
+        $tag->save();
 
-        $post = new post();
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->save();
-        $post->tags()->sync($request->tags);
-        $post->categories()->sync($request->categories);
-
-        return redirect(route('post.index'));
-
+        return redirect(route('tag.index'));
     }
 
     /**
@@ -81,11 +74,9 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $tag = tag::where('id', $id)->first();
+        return view('admin.edit_tag', compact('tag'));
 
-        $post = post::with('tags', 'categories')->where('id', $id)->first();
-        $tags = tag::all();
-        $categories = category::all();
-        return view('admin.post_edit', compact('post', 'tags', 'categories'));
     }
 
     /**
@@ -99,18 +90,17 @@ class PostController extends Controller
     {
         //
         $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
+            'name' => 'required',
+            'slug' => 'required',
         ]);
 
-        $post = post::find($id);
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->tags()->sync($request->tags);
-        $post->categories()->sync($request->categories);
-        $post->save();
+        $tag = tag::find($id);
+        $tag->name = $request->name;
+        $tag->slug = $request->slug;
+        $tag->save();
 
-        return redirect(route('post.index'));
+        return redirect(route('tag.index'));
+
     }
 
     /**
@@ -122,7 +112,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        post::where('id', $id)->delete();
-        return redirect()->back();
+        tag::where('id', $id)->delete();
+        return redirect()->back;
     }
 }
