@@ -1,8 +1,15 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## О проекте
+Контент
+=================
+1.  [Песочница](#Песочница)
+2.  [Автор](#Автор)
+
+
+# Песочница
 
 Песочница для применения и использования изученного функционалла
+
 ## Установка
 
 ### Скачать репозиторий или выполнить команду:
@@ -59,10 +66,10 @@ User::where('email', 'email@email.com')->update(['type' => 'admin']);
 ```
 
 
-## Автор
+# Автор
 
 **Александр Антощук**
 
-## License
+# License
 
 Фрейворк Laravel  открытое программное обеспечение, находящееся под [MIT license](https://opensource.org/licenses/MIT).
