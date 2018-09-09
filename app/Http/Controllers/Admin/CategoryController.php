@@ -18,7 +18,7 @@ class CategoryController extends Controller
     {
         //
         $categories = category::all();
-        return view('admin.category_list', compact('categories'));
+        return view('admin.category.list', compact('categories'));
     }
 
     /**
@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('admin.create_category');
+        return view('admin.category.create');
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoryController extends Controller
     {
         //
         $category = category::where('id', $id)->first();
-        return view('admin.edit_category', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**

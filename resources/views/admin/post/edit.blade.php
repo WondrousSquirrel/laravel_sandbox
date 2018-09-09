@@ -9,18 +9,20 @@
         {{ csrf_field() }}
         {{ method_field('PUT') }}
        <div class="container">
-              
+         <div class="section">
+
+         </div>
             <div class="row">
                 <div class="input-field col m10">
                     <input id="title" type="text" name="title" value="{{ $post->title }}">
-                    <label for="title">Title</label>
+                    <label for="title">Заголовок</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col m10">
                     <input id="body" type="text" name="body" value="{{ $post->body }}">
-                    <label for="body">Body</label>
+                    <label for="body">Текст</label>
                 </div>
             </div>
 
@@ -37,12 +39,11 @@
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
                                 @foreach ($post->categories as $postCategory)
-                                    @if($postCategory->id == $category->id) 
+                                    @if($postCategory->id == $category->id)
                                         selected
                                     @endif
                                 @endforeach
-                            >
-                            {{ $category->name }}</option>
+                            >{{ $category->name }}</option>
                         @endforeach
                     </select>
                     <label>Выберите Категорию</label>
@@ -51,14 +52,13 @@
                 <div class="input-field col m5">
                     <select multiple name="tags[]">
                         @foreach ($tags as $tag)
-                            <option value="{{ $tag->id }}" 
+                            <option value="{{ $tag->id }}"
                                 @foreach($post->tags as $postTag)
                                     @if($postTag->id == $tag->id)
                                         selected
                                     @endif
-                                @endforeach 
-                            > 
-                            {{ $tag->name }}</option>
+                                @endforeach
+                            >{{ $tag->name }}</option>
                         @endforeach
                     </select>
                     <label>Теги</label>

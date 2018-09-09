@@ -18,7 +18,7 @@ class TagController extends Controller
     {
         //
         $tags = tag::all();
-        return view('admin.tag_list', compact('tags'));
+        return view('admin.tag.list', compact('tags'));
     }
 
     /**
@@ -29,7 +29,7 @@ class TagController extends Controller
     public function create()
     {
         //
-        return view('admin.create_tag');
+        return view('admin.tag.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class TagController extends Controller
     {
         //
         $tag = tag::where('id', $id)->first();
-        return view('admin.edit_tag', compact('tag'));
+        return view('admin.tag.edit', compact('tag'));
 
     }
 

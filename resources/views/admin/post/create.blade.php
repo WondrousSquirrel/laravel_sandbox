@@ -1,25 +1,25 @@
 @extends('admin.layouts.main')
 
-@section('title', 'Создания поста')
+@section('title', 'Пост: создание')
 @section('content')
 <div class="row">
     @include('includes.messages')
-    <h2 style="text-align: center;">Create Post</h2>
+    <h2 style="text-align: center;">Создание поста</h2>
     <form class="col s12 card-panel white" action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" style="margin-left:5%;">
         {{ csrf_field() }}
        <div class="container">
-              
+
             <div class="row">
                 <div class="input-field col m10">
                     <input id="title" type="text" name="title" class="validate">
-                    <label for="title">Title</label>
+                    <label for="title">Заголовок</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col m10">
                     <input id="body" type="text" name="body" class="validate">
-                    <label for="body">Body</label>
+                    <label for="body">Текст</label>
                 </div>
             </div>
 

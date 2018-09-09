@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         // Отображения списка
         $posts = post::all(); // получение списка всех моделей
-        return view('admin.post_list', compact('posts'));
+        return view('admin.post.list', compact('posts'));
 
     }
 
@@ -32,7 +32,7 @@ class PostController extends Controller
         //
         $tags = tag::all();
         $categories = category::all();
-        return view('admin.create_post', compact('tags', 'categories'));
+        return view('admin.post.create', compact('tags', 'categories'));
     }
 
     /**
@@ -92,7 +92,7 @@ class PostController extends Controller
         $post = post::with('tags', 'categories')->where('id', $id)->first();
         $tags = tag::all();
         $categories = category::all();
-        return view('admin.post_edit', compact('post', 'tags', 'categories'));
+        return view('admin.post.edit', compact('post', 'tags', 'categories'));
     }
 
     /**
