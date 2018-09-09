@@ -1,8 +1,8 @@
 
   <nav>
-    <div class="nav-wrapper indigo darken-1">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper navbar-fixed white">
+      <a href="#!" class="brand-logo grey-text text-darken-2">Logo</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger grey-text text-darken-2"><i class="material-icons">menu</i></a>
       <ul id="dropdown1" class="dropdown-content">
           <li><a href="{{ route('admin.home') }}">Главная страница</a></li>
           <li><a href="#!">Личная страница</a></li>
@@ -17,10 +17,10 @@
           <!-- <li class="divider"></li> -->
       </ul>
       <ul class="right hide-on-med-and-down">
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a class="grey-text text-darken-2" href="mobile.html">Mobile</a></li>
         @guest
-            <li><a  href="{{ route('login') }}">{{ __('Login') }}</a></li>
-            <li><a  href="{{ route('register') }}">{{ __('Register') }}</a></li>
+            <li><a class="grey-text text-darken-2" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+            <li><a class="grey-text text-darken-2" href="{{ route('register') }}">{{ __('Register') }}</a></li>
         @else
             <li>
               <a href="#!" class="right dropdown-trigger" href="#!" data-target="dropdown1">
