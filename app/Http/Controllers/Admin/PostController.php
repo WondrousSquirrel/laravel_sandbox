@@ -48,18 +48,19 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
             'slug' => 'required',
-            //'image' => 'required',
+            'image' => 'required',
         ]);
-        /*
-        if($request->hasFile('image')) {
-            $imageName =$request->image->store('public');
+
+        if($request->hasFile('image')){
+            // место сохранения полученного файла - storage\app\public
+            $imageName = $request->image->store('public/img');
         }
-*/
 
         $post = new post;
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->body = $request->body;
+        $post->image = $imageName;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
@@ -109,16 +110,22 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required',
             'slug' => 'required',
-            //'image' => 'required',
+            'image' => 'required',
         ]);
+
+        if($request->hasFile('image')){
+          // место сохранения полученного файла - storage\app\public
+          $imageName = $request->image->store('public/img');
+        }
 
         $post = post::find($id);
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->body = $request->body;
+        $post->image = $imageName;
+        $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
-        $post->save();
 
         return redirect(route('post.index'));
     }

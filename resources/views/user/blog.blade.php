@@ -6,10 +6,12 @@
 <div class="row">
   @foreach ($posts as $post)
     <div class="col s4">
+
             <div class="card">
               <a href="#!">
                 <div class="card-image">
-                    <img class="center-cropped" src="https://images.unsplash.com/photo-1536420111820-d84dee5c90c5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d76602c3cafa0599d42cfdf255c5eb8d&auto=format&fit=crop&w=700&q=80">
+
+                    <img class="center-cropped" src="{{ asset(Storage::disk('local')->url($post->image)) }}" id="Image" name="Image" alt="image">
                 </div>
             </a>
               <div class="card-body">

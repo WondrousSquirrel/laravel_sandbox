@@ -3,8 +3,7 @@
     <div class="nav-wrapper navbar-fixed white">
       <a href="#!" class="brand-logo grey-text text-darken-2">Logo</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger grey-text text-darken-2"><i class="material-icons">menu</i></a>
-      <ul id="dropdown1" class="dropdown-content">
-          <li><a href="{{ route('admin.home') }}">Главная страница</a></li>
+      <ul id="dropdown1" class="dropdown-content ">
           <li><a href="#!">Личная страница</a></li>
           <li>
               <a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -23,7 +22,7 @@
             <li><a class="grey-text text-darken-2" href="{{ route('register') }}">{{ __('Register') }}</a></li>
         @else
             <li>
-              <a href="#!" class="right dropdown-trigger" href="#!" data-target="dropdown1">
+              <a href="#!" class="right dropdown-trigger grey-text text-darken-2" href="#!" data-target="dropdown1">
                   {{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i>
               </a>
             </li>
