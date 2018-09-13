@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use Illuminate\Http\Request;
-
-use Mail;
+use App\Http\Controllers\Controller;
 
 class MailController extends Controller
 {
+    //
     public function send() {
       Mail::send(['text' => 'mail'], ['name', 'Web dev blog'], function($message){
         $message->to('wondroussquirrel@gmail.com', 'new user')->subject('Test email');

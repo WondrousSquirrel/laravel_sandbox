@@ -71,8 +71,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            $user_name = $data['name'],
-            Mail::to($data['email'])->send(new WelcomeMail($data['name']))
+            // $user_name = $data['name'],
+            // Mail::to($data['email'])->send(new WelcomeMail($data['name']))
         ]);
 
 

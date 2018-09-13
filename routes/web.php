@@ -13,11 +13,24 @@
 
 Route::get('/', 'user\HomeController@index')->name('blog');
 
-Auth::routes();
+/*
+добавлено verify = true
+Позволяет подключить новый Verification контроллер через route
+*/
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => true]);
 
-Route::get('send/', 'MailController@send');
+
+
+
+// User Routes
+
+Route::group(['middleware' => 'verified', 'namespace' => 'User'], function() {
+  Route::get('/home', 'HomeController@index')->name('home');
+  Route::get('profile', function () {
+      return 'Hello World';
+  });
+});
 
 // Admin login
 
@@ -37,3 +50,7 @@ Route::group(['middleware' => 'is_admin', 'namespace' => 'Admin'], function(){
     Route::resource('admin/tag', 'TagController');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
