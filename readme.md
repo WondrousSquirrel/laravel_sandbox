@@ -56,7 +56,7 @@ DB_PASSWORD=username_pass
 php artisan migrate
 ```
 
-### Добавление Админа
+### Добавить Админа
 
 Необходимо зарегистрироваться на сайте и через тинкер указать:
 
@@ -65,6 +65,11 @@ php artisan tinker
 
 use App\User;
 User::where('email', 'email@email.com')->update(['type' => 'admin']);
+```
+### Создать символическую ссылку
+
+```
+php artisan storage:link
 ```
 
 # Реализованно

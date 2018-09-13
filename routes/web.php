@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('send/', 'MailController@send');
+
 // Admin login
 
 Route::group(['namespace' => 'Admin'], function(){
